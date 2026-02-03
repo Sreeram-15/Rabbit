@@ -45,6 +45,10 @@ app.get('/',(req,res)=>{
     res.send("Welcome to Rabbit API!");
 });
 
-app.listen(PORT,()=>{
-    console.log(`server running on http://localhost:${PORT}`);
-});
+if (process.env.VERCEL !== "1") {
+    app.listen(PORT, () => {
+        console.log(`server running on http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
