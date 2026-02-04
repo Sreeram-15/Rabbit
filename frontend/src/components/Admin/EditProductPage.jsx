@@ -225,7 +225,7 @@ const EditProductPage = () => {
             onChange={handleImageUpload}
             
           />
-          {isUploading&& <p>uploading image....</p>}
+          {isUploading&& <p>Uploading image....</p>}
           <div className="flex gap-4 mt-4">
             {productData.images.map((image, index) => (
               <div key={index}>

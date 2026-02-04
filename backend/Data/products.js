@@ -13,17 +13,17 @@ const products = [
     category: "Top Wear",
     brand: "Urban Threads",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["White", "LightBlue", "Navy"],
+    colors: ["Red", "Blue", "Yellow"],
     collections: "Business Casual",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/33544801/pexels-photo-33544801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/10510955/pexels-photo-10510955.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Classic Oxford Button-Down Shirt Front View",
       },
       {
-        url: "https://images.pexels.com/photos/15557047/pexels-photo-15557047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/14960584/pexels-photo-14960584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Classic Oxford Button-Down Shirt Back View",
       },
     ],
@@ -41,17 +41,17 @@ const products = [
     category: "Top Wear",
     brand: "Modern Fit",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "Navy", "Maroon"],
+    colors: ["Black", "Navy Blue", "Burgundy"],
     collections: "Formal Wear",
     material: "Cotton Blend",
     gender: "Men",
     images: [
       {
-        url: "https://raw.githubusercontent.com/alexeygrigorev/clothing-dataset/master/images/09f4ffb6-ed86-42b6-ac23-6f8f2359460f.jpg",
+        url: "https://images.pexels.com/photos/3290886/pexels-photo-3290886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
-        url: "https://raw.githubusercontent.com/alexeygrigorev/clothing-dataset/master/images/b951618d-f10d-4c12-82a4-9b18ee12aa2c.jpg",
+        url: "https://images.pexels.com/photos/12446409/pexels-photo-12446409.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Slim-Fit Stretch Shirt Back View",
       },
     ],
@@ -69,13 +69,13 @@ const products = [
     category: "Top Wear",
     brand: "Street Style",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["LightBlue", "DarkBlue"],
+    colors: ["Light Blue", "Dark Wash"],
     collections: "Casual Wear",
     material: "Denim",
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/32490940/pexels-photo-32490940.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/17399988/pexels-photo-17399988.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Casual Denim Shirt Front View",
       },
       {
@@ -97,17 +97,17 @@ const products = [
     category: "Top Wear",
     brand: "Beach Breeze",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Teal", "Navy", "White"],
+    colors: ["Tropical Print", "Navy Palms"],
     collections: "Vacation Wear",
     material: "Viscose",
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/3290886/pexels-photo-3290886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/11029620/pexels-photo-11029620.png?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Printed Resort Shirt Front View",
       },
       {
-        url: "https://images.pexels.com/photos/15258903/pexels-photo-15258903.png?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/24233063/pexels-photo-24233063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Printed Resort Shirt Back View",
       },
     ],
@@ -125,17 +125,17 @@ const products = [
     category: "Top Wear",
     brand: "Urban Chic",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["White", "LightGray"],
+    colors: ["White", "Gray"],
     collections: "Business Wear",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://raw.githubusercontent.com/alexeygrigorev/clothing-dataset/master/images/ef4afaa2-ce6f-4063-83ad-beac8d201e67.jpg",
+        url: "https://images.pexels.com/photos/32490940/pexels-photo-32490940.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
       {
-        url: "https://raw.githubusercontent.com/alexeygrigorev/clothing-dataset/master/images/ab3bd520-3337-4ed6-a7eb-d11455385fd3.jpg",
+        url: "https://images.pexels.com/photos/20525731/pexels-photo-20525731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
     ],
@@ -159,11 +159,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/11100293/pexels-photo-11100293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/5327610/pexels-photo-5327610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Polo T-Shirt Front View",
       },
       {
-        url: "https://images.pexels.com/photos/10962177/pexels-photo-10962177.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/17987934/pexels-photo-17987934.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Polo T-Shirt Back View",
       },
     ],
@@ -187,7 +187,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/16887216/pexels-photo-16887216.png?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/15258903/pexels-photo-15258903.png?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Oversized Graphic T-Shirt Front View",
       },
     ],
@@ -205,13 +205,13 @@ const products = [
     category: "Top Wear",
     brand: "Heritage Wear",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["LightGray", "Olive", "Black"],
+    colors: ["Heather Gray", "Olive", "Black"],
     collections: "Casual Wear",
     material: "Cotton Blend",
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/14622878/pexels-photo-14622878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/33406897/pexels-photo-33406897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Regular-Fit Henley Shirt Front View",
       },
     ],
@@ -229,13 +229,13 @@ const products = [
     category: "Top Wear",
     brand: "Winter Basics",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["DimGray", "DarkGreen", "Navy"],
+    colors: ["Charcoal", "Dark Green", "Navy"],
     collections: "Winter Essentials",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/9412754/pexels-photo-9412754.png?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/18041846/pexels-photo-18041846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Long-Sleeve Thermal Tee Front View",
       },
     ],
@@ -259,7 +259,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/11029620/pexels-photo-11029620.png?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/12781928/pexels-photo-12781928.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "V-Neck Classic T-Shirt Front View",
       },
     ],
@@ -283,7 +283,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/6083916/pexels-photo-6083916.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/5319381/pexels-photo-5319381.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Slim Fit Joggers Front View",
       },
     ],
@@ -307,7 +307,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/5696896/pexels-photo-5696896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/14609477/pexels-photo-14609477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Cargo Joggers Front View",
       },
     ],
@@ -325,13 +325,13 @@ const products = [
     category: "Bottom Wear",
     brand: "ChillZone",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Gray", "DimGray", "Blue"],
+    colors: ["Gray", "Charcoal", "Blue"],
     collections: "Lounge Collection",
     material: "Fleece",
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/10392342/pexels-photo-10392342.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/31961166/pexels-photo-31961166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Tapered Sweatpants Front View",
       },
     ],
@@ -349,13 +349,13 @@ const products = [
     category: "Bottom Wear",
     brand: "DenimCo",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["DarkBlue", "LightBlue"],
+    colors: ["Dark Blue", "Light Blue"],
     collections: "Denim Collection",
     material: "Denim",
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/30710032/pexels-photo-30710032.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/35798895/pexels-photo-35798895.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Denim Jeans Front View",
       },
     ],
@@ -379,7 +379,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/30229903/pexels-photo-30229903.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/32414873/pexels-photo-32414873.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Chino Pants Front View",
       },
     ],
@@ -403,7 +403,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/13958659/pexels-photo-13958659.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/885415/pexels-photo-885415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Track Pants Front View",
       },
     ],
@@ -427,7 +427,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/2897533/pexels-photo-2897533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/15193930/pexels-photo-15193930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Slim Fit Trousers Front View",
       },
     ],
@@ -451,7 +451,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/11716437/pexels-photo-11716437.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/17037283/pexels-photo-17037283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Cargo Pants Front View",
       },
     ],
@@ -475,7 +475,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://images.pexels.com/photos/18393512/pexels-photo-18393512.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/15988333/pexels-photo-15988333.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Relaxed Fit Sweatpants Front View",
       },
     ],
@@ -499,7 +499,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://raw.githubusercontent.com/alexeygrigorev/clothing-dataset/master/images/081b5ec1-13a6-43c8-991f-9ad2020f646a.jpg",
+        url: "https://images.pexels.com/photos/35043252/pexels-photo-35043252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Formal Dress Pants Front View",
       },
     ],
@@ -517,13 +517,13 @@ const products = [
     category: "Bottom Wear",
     brand: "DenimStyle",
     sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["DarkBlue", "Black", "LightBlue"],
+    colors: ["Dark Blue", "Black", "Light Blue"],
     collections: "Denim Collection",
     material: "Denim",
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/2245035/pexels-photo-2245035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/30939235/pexels-photo-30939235.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "High-Waist Skinny Jeans",
       },
     ],
@@ -571,7 +571,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/29483985/pexels-photo-29483985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/5310742/pexels-photo-5310742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Stretch Leggings Front View",
       },
     ],
@@ -595,7 +595,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/34697425/pexels-photo-34697425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/17664538/pexels-photo-17664538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Pleated Midi Skirt Front View",
       },
     ],
@@ -613,7 +613,7 @@ const products = [
     category: "Bottom Wear",
     brand: "BreezyVibes",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["White", "Beige", "LightBlue"],
+    colors: ["White", "Beige", "Light Blue"],
     collections: "Summer Collection",
     material: "Linen Blend",
     gender: "Women",
@@ -643,7 +643,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/32624950/pexels-photo-32624950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/9901666/pexels-photo-9901666.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "High-Rise Joggers Front View",
       },
     ],
@@ -667,7 +667,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/25651197/pexels-photo-25651197.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/30248246/pexels-photo-30248246.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Paperbag Waist Shorts Front View",
       },
     ],
@@ -691,7 +691,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/17013629/pexels-photo-17013629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/10050624/pexels-photo-10050624.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Stretch Denim Shorts Front View",
       },
     ],
@@ -715,7 +715,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/975005/pexels-photo-975005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/34697425/pexels-photo-34697425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Culottes Front View",
       },
     ],
@@ -787,7 +787,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/11588270/pexels-photo-11588270.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/11030283/pexels-photo-11030283.png?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Boho Floral Blouse",
       },
     ],
@@ -811,7 +811,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/2562500/pexels-photo-2562500.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/11288120/pexels-photo-11288120.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Casual T-Shirt",
       },
     ],
@@ -931,7 +931,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/11030283/pexels-photo-11030283.png?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/7716942/pexels-photo-7716942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Ruffle-Sleeve Blouse",
       },
     ],
@@ -949,13 +949,13 @@ const products = [
     category: "Top Wear",
     brand: "ClassicStyle",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["White", "LightBlue", "Black"],
+    colors: ["White", "Light Blue", "Black"],
     collections: "Office Collection",
     material: "Cotton",
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/12206864/pexels-photo-12206864.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/13792863/pexels-photo-13792863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "Classic Button-Up Shirt",
       },
     ],
@@ -979,7 +979,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://images.pexels.com/photos/5679148/pexels-photo-5679148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
+        url: "https://images.pexels.com/photos/2363825/pexels-photo-2363825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=800&fit=crop",
         altText: "V-Neck Wrap Top",
       },
     ],
