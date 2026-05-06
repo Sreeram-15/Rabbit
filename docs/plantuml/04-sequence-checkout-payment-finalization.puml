@@ -1,0 +1,72 @@
+@startuml
+title Rabbit - Checkout, PayPal Payment, Order Finalization, and Customer Order Views
+
+autonumber
+actor Customer
+participant "React Checkout UI" as React
+participant "Checkout thunk / axios" as Redux
+participant "Express API" as API
+participant "Auth middleware" as Auth
+database "Checkout model" as Checkout
+participant "PayPal SDK" as PayPal
+database "Order model" as Order
+database "Cart model" as Cart
+
+Customer -> React : Open checkout page
+alt Cart missing or empty
+  React --> Customer : Redirect home / show empty cart
+else Cart has products
+  Customer -> React : Submit shipping address
+  React -> Redux : createCheckout(checkoutItems, shippingAddress, PayPal, totalPrice)
+  Redux -> API : POST /api/checkout with Bearer token
+  API -> Auth : protect
+  Auth --> API : req.user
+  alt No checkout items
+    API --> Redux : 400 No items in checkout
+  else Checkout data valid
+    API -> Checkout : create pending checkout session
+    Checkout --> API : Checkout document with _id
+    API --> Redux : 201 checkout
+    Redux --> React : checkoutId
+  end
+
+  React -> PayPal : Render PayPalButtons with USD amount
+  Customer -> PayPal : Approve payment
+  PayPal --> React : Captured payment details
+  React -> API : PUT /api/checkout/:id/pay\npaymentStatus=paid
+  API -> Auth : protect
+  Auth --> API : req.user
+  API -> Checkout : findById(id)
+  alt Checkout missing
+    API --> React : 404 Checkout not found
+  else Status is paid
+    API -> Checkout : set isPaid, paymentStatus, paymentDetails, paidAt
+    API --> React : 200 paid checkout
+    React -> API : POST /api/checkout/:id/finalize
+    API -> Auth : protect
+    Auth --> API : req.user
+    API -> Checkout : findById(id)
+    alt Checkout paid and not finalized
+      API -> Order : create order from checkout items/address/payment
+      API -> Checkout : set isFinalized and finalizedAt
+      API -> Cart : delete user cart
+      API --> React : 201 final order
+      React --> Customer : Navigate to order confirmation
+    else Already finalized
+      API --> React : 400 checkout already finalized
+    else Not paid
+      API --> React : 400 checkout is not paid
+    end
+  else Invalid payment status
+    API --> React : 400 Invalid Payment Status
+  end
+end
+
+Customer -> React : View order list or order details
+React -> API : GET /api/orders/my-orders or /api/orders/:id\nwith Bearer token
+API -> Auth : protect
+Auth --> API : req.user
+API -> Order : find by authenticated user or order id
+Order --> API : Order data
+API --> React : Orders/details JSON
+@enduml

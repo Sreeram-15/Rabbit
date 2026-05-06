@@ -1,0 +1,70 @@
+@startuml
+title Rabbit - Registration, Login, Protected Access, and Guest Cart Merge
+
+autonumber
+actor Shopper
+participant "React app / Redux" as React
+participant "Express API" as API
+participant "Auth middleware" as Auth
+database "User model" as User
+database "Cart model" as Cart
+participant "JWT service" as JWT
+
+opt New account
+  Shopper -> React : Submit registration form
+  React -> API : POST /api/users/register
+  API -> User : findOne(email)
+  alt Email already exists
+    User --> API : Existing user
+    API --> React : 400 User already exists
+  else Email is available
+    API -> User : save(name, email, hashed password, customer role)
+    API -> JWT : sign({ user: { id, role } }, JWT_SECRET)
+    JWT --> API : token
+    API --> React : 201 user + token
+  end
+end
+
+Shopper -> React : Submit login form
+React -> API : POST /api/users/login
+API -> User : findOne(email)
+alt User missing or password mismatch
+  API --> React : 400 Invalid credentials
+else Credentials valid
+  API -> User : matchPassword(password)
+  API -> JWT : sign({ user: { id, role } }, JWT_SECRET)
+  JWT --> API : token
+  API --> React : user + token
+  React -> API : POST /api/cart/merge\nBearer token + guestId
+  API -> Auth : protect
+  Auth -> JWT : verify token
+  Auth -> User : findById(decoded.user.id).select(-password)
+  User --> Auth : req.user
+  Auth --> API : next()
+  API -> Cart : find guestCart and userCart
+  alt Guest cart and user cart exist
+    API -> Cart : merge matching size/color/product lines
+    API -> Cart : recalculate totalPrice and save userCart
+    API -> Cart : delete guestCart
+    API --> React : 200 merged userCart
+  else Guest cart only
+    API -> Cart : assign guest cart to req.user and clear guestId
+    API --> React : 200 assigned cart
+  else No guest cart but user cart exists
+    API --> React : 200 userCart
+  else No cart exists
+    API --> React : 404 No Cart Found
+  end
+end
+
+Shopper -> React : Open protected profile/admin route
+React -> API : GET protected endpoint with Bearer token
+API -> Auth : protect and optional admin check
+alt Missing/invalid token
+  API --> React : 401 not authorized
+else Non-admin requests admin route
+  API --> React : 403 not authorized as admin
+else Authorized
+  API --> React : Protected data
+end
+@enduml

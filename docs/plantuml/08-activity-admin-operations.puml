@@ -1,0 +1,62 @@
+@startuml
+title Rabbit - Admin Operations Activity
+
+start
+if (Frontend user exists and role is admin?) then (No)
+  :Redirect to login;
+  stop
+else (Yes)
+  :Render admin dashboard;
+endif
+
+repeat
+  :Choose operation;
+  if (Operation is Users?) then (Yes)
+    :GET/POST/PUT/DELETE /api/admin/users;
+    :Backend protect + admin;
+    if (Action is List?) then (Yes)
+      :Find all users without passwords;
+    elseif (Action is Create?) then (Yes)
+      :Reject duplicate email or create user;
+    elseif (Action is Update?) then (Yes)
+      :Patch name/email/role;
+    else (Delete)
+      :Delete user;
+    endif
+    :Return JSON result;
+  elseif (Operation is Products?) then (Yes)
+    :Manage /api/admin/products and /api/products;
+    :Backend protect + admin;
+    if (Action is List?) then (Yes)
+      :Find all products;
+    elseif (Action is Create?) then (Yes)
+      :Create product with admin user id;
+    elseif (Action is Update?) then (Yes)
+      :Patch supplied product fields;
+    else (Delete)
+      :Delete product;
+    endif
+    :Return JSON result;
+  elseif (Operation is Images?) then (Yes)
+    :POST /api/upload;
+    if (Image file present?) then (No)
+      :Return no file uploaded;
+    else (Yes)
+      :Stream memory buffer to Cloudinary;
+      :Return secure image_url;
+    endif
+  else (Orders)
+    :GET/PUT/DELETE /api/admin/orders;
+    :Backend protect + admin;
+    if (Action is List?) then (Yes)
+      :Find all orders and populate user name/email;
+    elseif (Action is Update?) then (Yes)
+      :Set status; if Delivered set isDelivered and deliveredAt;
+    else (Delete)
+      :Delete order;
+    endif
+    :Return JSON result;
+  endif
+repeat while (Another admin action?) is (Yes)
+stop
+@enduml

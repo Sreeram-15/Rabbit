@@ -1,0 +1,66 @@
+@startuml
+title Rabbit - Admin Management and Image Upload
+
+autonumber
+actor Admin
+participant "Admin dashboard" as React
+participant "Express API" as API
+participant "Auth + admin middleware" as Auth
+database "User model" as User
+database "Product model" as Product
+database "Order model" as Order
+participant "Multer memory storage" as Upload
+cloud "Cloudinary upload stream" as Cloudinary
+
+Admin -> React : Open /admin route
+React -> React : ProtectedRoute requires user.role == admin
+alt Not logged in or wrong role
+  React --> Admin : Redirect to /login
+else Admin role present
+  React --> Admin : Render AdminLayout
+end
+
+opt Manage users
+  Admin -> React : List/create/update/delete users
+  React -> API : GET/POST/PUT/DELETE /api/admin/users\nwith Bearer token
+  API -> Auth : protect then admin
+  Auth --> API : Authorized admin
+  API -> User : query, create, update, or delete user
+  API --> React : User result or error
+end
+
+opt Manage products
+  Admin -> React : List products
+  React -> API : GET /api/admin/products with Bearer token
+  API -> Auth : protect then admin
+  API -> Product : find({})
+  API --> React : Products
+
+  Admin -> React : Create/update/delete product
+  React -> API : POST/PUT/DELETE /api/products with Bearer token
+  API -> Auth : protect then admin
+  API -> Product : save, update fields, or delete product
+  API --> React : Product result or error
+end
+
+opt Upload image
+  Admin -> React : Select image file
+  React -> API : POST /api/upload multipart image
+  API -> Upload : store file in memory
+  alt No file uploaded
+    API --> React : 404 No File Uploaded
+  else File present
+    API -> Cloudinary : upload_stream(file buffer)
+    Cloudinary --> API : secure_url
+    API --> React : image_url
+  end
+end
+
+opt Manage orders
+  Admin -> React : List/update/delete orders
+  React -> API : GET/PUT/DELETE /api/admin/orders\nwith Bearer token
+  API -> Auth : protect then admin
+  API -> Order : find all, set status/deliveredAt, or delete
+  API --> React : Order result or error
+end
+@enduml
