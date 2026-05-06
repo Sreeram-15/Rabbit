@@ -1,0 +1,61 @@
+@startuml
+title Rabbit - Customer Shopping and Checkout Activity
+
+start
+:Browse home, collections, best sellers, or new arrivals;
+if (Apply filters/search/sort?) then (Yes)
+  :Build product query from category, gender, size, color, brand, material, price, sort, limit, and search;
+endif
+:Display matching products;
+if (Open product details?) then (Yes)
+  :Fetch product by id and similar products;
+endif
+:Choose size/color/quantity;
+:Add item to guest or user cart;
+if (Cart exists?) then (Yes)
+  if (Same product, size, and color exists?) then (Yes)
+    :Increment quantity;
+  else (No)
+    :Add new cart line;
+  endif
+else (No)
+  :Create new cart with guestId or user id;
+endif
+:Recalculate total price;
+if (Continue shopping?) then (Yes)
+  repeat
+    :Browse more products;
+  repeat while (Continue shopping?) is (Yes)
+endif
+if (Authenticated customer?) then (No)
+  :Log in or register;
+  :Merge guest cart into user cart;
+endif
+:Open checkout;
+if (Cart has items?) then (No)
+  :Redirect home or show empty cart;
+  stop
+else (Yes)
+  :Enter contact and shipping details;
+  :Create pending checkout session;
+  :Approve/capture PayPal payment;
+  while (Payment status == paid?) is (No)
+    :Show payment error;
+    :Retry PayPal payment;
+  endwhile (Yes)
+  :Mark checkout paid;
+  if (Checkout paid and not finalized?) then (Yes)
+    :Create final order from checkout;
+    :Delete customer cart;
+    :Show order confirmation;
+    :Customer can view my orders or order details;
+    stop
+  elseif (Already finalized?) then (Yes)
+    :Return already finalized error;
+    stop
+  else (Not paid)
+    :Return checkout not paid error;
+    stop
+  endif
+endif
+@enduml

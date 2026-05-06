@@ -1,0 +1,69 @@
+@startuml
+title Rabbit - Catalog Browsing, Product Details, and Cart Management
+
+autonumber
+actor Shopper
+participant "React app / Redux" as React
+participant "Express API" as API
+database "Product model" as Product
+database "Cart model" as Cart
+
+Shopper -> React : Visit home, collection, search, or sort/filter view
+React -> API : GET /api/products?collection&category&gender&size&brand&material&color&price&sortBy&limit&search
+API -> Product : Build Mongo query from optional filters
+API -> Product : find(query).sort(sort).limit(limit)
+Product --> API : Product list
+API --> React : Product list JSON
+
+Shopper -> React : Open product details
+React -> API : GET /api/products/:id
+API -> Product : findById(id)
+alt Product found
+  Product --> API : Product document
+  API --> React : Product details
+  React -> API : GET /api/products/similar/:id
+  API -> Product : find current product
+  API -> Product : find same category/gender\nexcluding current id, sort by rating, limit 4
+  API --> React : Similar products
+else Product not found
+  API --> React : 404 Product not found
+end
+
+Shopper -> React : Add product to cart
+React -> API : POST /api/cart\nproductId, quantity, size, color, guestId or userId
+API -> Product : findById(productId)
+alt Product missing
+  API --> React : 404 Product not found
+else Product exists
+  API -> Cart : find by userId or guestId
+  alt Existing cart has same product/size/color
+    API -> Cart : increment quantity and recalculate totalPrice
+    API --> React : 200 updated cart
+  else Existing cart lacks selected variant
+    API -> Cart : push new product line and recalculate totalPrice
+    API --> React : 200 updated cart
+  else No existing cart
+    API -> Cart : create cart with user or generated guestId
+    API --> React : 201 new cart
+  end
+end
+
+opt Update quantity
+  Shopper -> React : Change cart quantity
+  React -> API : PUT /api/cart
+  API -> Cart : find cart and matching line
+  alt Quantity greater than zero
+    API -> Cart : set quantity and recalculate totalPrice
+  else Quantity zero or lower
+    API -> Cart : remove product line and recalculate totalPrice
+  end
+  API --> React : Updated cart or 404
+end
+
+opt Remove item
+  Shopper -> React : Remove cart item
+  React -> API : DELETE /api/cart
+  API -> Cart : remove matching product/size/color line\nand recalculate totalPrice
+  API --> React : Updated cart or 404
+end
+@enduml

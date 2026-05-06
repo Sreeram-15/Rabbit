@@ -1,0 +1,91 @@
+@startuml
+left to right direction
+title Rabbit - Use Case Diagram
+
+actor "Guest shopper" as Guest
+actor "Authenticated customer" as Customer
+actor "Admin user" as Admin
+actor PayPal
+cloud Cloudinary
+database MongoDB
+
+rectangle "Rabbit e-commerce platform" {
+  usecase "Browse catalog" as UC_Browse
+  usecase "Search/filter/sort products" as UC_Search
+  usecase "View product details" as UC_ViewProduct
+  usecase "View similar products" as UC_ViewSimilar
+  usecase "Subscribe to newsletter" as UC_Subscribe
+  usecase "Register account" as UC_Register
+  usecase "Log in" as UC_Login
+  usecase "Manage guest cart" as UC_GuestCart
+  usecase "Manage customer cart" as UC_UserCart
+  usecase "Merge guest cart on login" as UC_MergeCart
+  usecase "Create checkout session" as UC_Checkout
+  usecase "Pay for checkout" as UC_Pay
+  usecase "Finalize order" as UC_Finalize
+  usecase "View own orders" as UC_ViewOrders
+  usecase "View profile" as UC_ViewProfile
+  usecase "Manage users" as UC_AdminUsers
+  usecase "Create/update/delete products" as UC_AdminProducts
+  usecase "Upload product images" as UC_AdminImages
+  usecase "Manage order fulfillment" as UC_AdminOrders
+  usecase "Authorize protected routes" as UC_Protect
+}
+
+Guest --> UC_Browse
+Guest --> UC_Search
+Guest --> UC_ViewProduct
+Guest --> UC_ViewSimilar
+Guest --> UC_Subscribe
+Guest --> UC_Register
+Guest --> UC_Login
+Guest --> UC_GuestCart
+
+Customer --> UC_Browse
+Customer --> UC_Search
+Customer --> UC_ViewProduct
+Customer --> UC_UserCart
+Customer --> UC_MergeCart
+Customer --> UC_Checkout
+Customer --> UC_Pay
+Customer --> UC_Finalize
+Customer --> UC_ViewOrders
+Customer --> UC_ViewProfile
+
+Admin --> UC_Login
+Admin --> UC_AdminUsers
+Admin --> UC_AdminProducts
+Admin --> UC_AdminImages
+Admin --> UC_AdminOrders
+
+UC_UserCart ..> UC_Protect : <<include>>
+UC_MergeCart ..> UC_Protect : <<include>>
+UC_Checkout ..> UC_Protect : <<include>>
+UC_Pay ..> UC_Protect : <<include>>
+UC_Finalize ..> UC_Protect : <<include>>
+UC_ViewOrders ..> UC_Protect : <<include>>
+UC_ViewProfile ..> UC_Protect : <<include>>
+UC_AdminUsers ..> UC_Protect : <<include>>
+UC_AdminProducts ..> UC_Protect : <<include>>
+UC_AdminOrders ..> UC_Protect : <<include>>
+
+UC_Pay --> PayPal
+UC_AdminImages --> Cloudinary
+
+UC_Browse --> MongoDB
+UC_Search --> MongoDB
+UC_ViewProduct --> MongoDB
+UC_ViewSimilar --> MongoDB
+UC_Subscribe --> MongoDB
+UC_Register --> MongoDB
+UC_Login --> MongoDB
+UC_GuestCart --> MongoDB
+UC_UserCart --> MongoDB
+UC_MergeCart --> MongoDB
+UC_Checkout --> MongoDB
+UC_Finalize --> MongoDB
+UC_ViewOrders --> MongoDB
+UC_AdminUsers --> MongoDB
+UC_AdminProducts --> MongoDB
+UC_AdminOrders --> MongoDB
+@enduml

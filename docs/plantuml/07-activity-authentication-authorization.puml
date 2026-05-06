@@ -1,0 +1,37 @@
+@startuml
+title Rabbit - Authentication and Authorization Activity
+
+start
+if (Endpoint requires authentication?) then (No)
+  :Run public route handler;
+  :Return route response;
+  stop
+else (Yes)
+  if (Authorization header starts with Bearer?) then (No)
+    :Return 401: no token provided;
+    stop
+  else (Yes)
+    :Verify JWT with JWT_SECRET;
+    if (Token valid?) then (No)
+      :Return 401: token failed;
+      stop
+    else (Yes)
+      :Load user by decoded user id without password;
+      if (Route requires admin?) then (No)
+        :Run private route handler;
+        :Return protected response;
+        stop
+      else (Yes)
+        if (req.user.role == admin?) then (No)
+          :Return 403: not authorized as admin;
+          stop
+        else (Yes)
+          :Run admin route handler;
+          :Return protected response;
+          stop
+        endif
+      endif
+    endif
+  endif
+endif
+@enduml
