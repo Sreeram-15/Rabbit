@@ -1,0 +1,33 @@
+sequenceDiagram
+    autonumber
+    participant C as Customer
+    participant FE as Frontend (React)
+    participant API as Backend API (Express)
+    participant DB as MongoDB
+    participant PP as PayPal
+
+    C->>FE: Add item to cart
+    FE->>API: POST /api/cart
+    API->>DB: Create/update cart
+    DB-->>API: Cart document
+    API-->>FE: Updated cart
+
+    C->>FE: Proceed to checkout
+    FE->>API: POST /api/checkout
+    API->>DB: Create checkout session (Pending)
+    DB-->>API: Checkout session
+    API-->>FE: Checkout session payload
+
+    FE->>PP: Create + capture payment
+    PP-->>FE: paymentDetails
+    FE->>API: PUT /api/checkout/:id/pay
+    API->>DB: Mark checkout isPaid=true
+    DB-->>API: Paid checkout
+    API-->>FE: Payment confirmed
+
+    FE->>API: POST /api/checkout/:id/finalize
+    API->>DB: Create Order from Checkout
+    API->>DB: Mark checkout isFinalized=true
+    API->>DB: Delete user cart
+    DB-->>API: Final order
+    API-->>FE: Finalized order response

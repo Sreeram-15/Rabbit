@@ -134,6 +134,19 @@ Frontend deployment → root directory: frontend/
 Update frontend after backend deployment:
 
 VITE_BACKEND_URL=https://your-backend-url.vercel.app
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔁 Sequence Diagrams
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Sequence diagrams are now maintained as separate files under `docs/sequence-diagrams/`:
+
+- `docs/sequence-diagrams/customer-checkout.mmd`
+- `docs/sequence-diagrams/guest-cart-merge.mmd`
+- `docs/sequence-diagrams/admin-order-management.mmd`
+
+These map to routes registered in `backend/server.js`.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📌 Roadmap
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
