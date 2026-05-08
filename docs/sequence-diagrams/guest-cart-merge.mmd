@@ -1,0 +1,20 @@
+sequenceDiagram
+    autonumber
+    participant G as Guest User
+    participant FE as Frontend (React)
+    participant API as Backend API (Express)
+    participant DB as MongoDB
+
+    G->>FE: Add products as guest
+    FE->>API: POST /api/cart (guestId)
+    API->>DB: Save guest cart
+    DB-->>API: Guest cart
+    API-->>FE: Guest cart state
+
+    G->>FE: Log in
+    FE->>API: POST /api/cart/merge (guestId + JWT)
+    API->>DB: Load guest cart + user cart
+    API->>DB: Merge line items, recalc total
+    API->>DB: Delete guest cart
+    DB-->>API: Merged user cart
+    API-->>FE: Merge success + user cart

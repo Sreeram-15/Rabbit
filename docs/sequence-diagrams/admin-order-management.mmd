@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+    participant A as Admin
+    participant FE as Admin Dashboard
+    participant API as Backend API (Express)
+    participant DB as MongoDB
+
+    A->>FE: Open orders page
+    FE->>API: GET /api/admin/orders
+    API->>DB: Find all orders + populate user
+    DB-->>API: Orders list
+    API-->>FE: Orders payload
+
+    A->>FE: Update order status
+    FE->>API: PUT /api/admin/orders/:id
+    API->>DB: Update status / delivery fields
+    DB-->>API: Updated order
+    API-->>FE: Updated order response
+
+    A->>FE: Remove order
+    FE->>API: DELETE /api/admin/orders/:id
+    API->>DB: Delete order
+    DB-->>API: Deletion confirmed
+    API-->>FE: "Order Removed"
